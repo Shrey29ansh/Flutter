@@ -5,10 +5,10 @@ void main() {
   return runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: Text('Dice'),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.teal,
         ),
         body: DicePage(),
       ),
@@ -34,27 +34,52 @@ class _DicePageState extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              child: Image(image: AssetImage('images/dice$randomNumber.png')),
-              onPressed: () {
-                changestate();
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Image(
-                image: AssetImage('images/dice$randomRight.png'),
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                  'Welcome to the dice game',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                ],
               ),
-              onPressed: () {
-                changestate();
-              },
             ),
-          )
-        ],
+            SizedBox(height: 30),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: FlatButton(
+                    child: Image(
+                        image: AssetImage('images/dice$randomNumber.png')),
+                    onPressed: () {
+                      changestate();
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: FlatButton(
+                    child: Image(
+                      image: AssetImage('images/dice$randomRight.png'),
+                    ),
+                    onPressed: () {
+                      changestate();
+                    },
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
